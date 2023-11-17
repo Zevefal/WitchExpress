@@ -28,7 +28,8 @@ public class Obstacle : MonoBehaviour
     private float _maxSpeed = 2f;
     private string _directionName;
     private List<string> _directions = new List<string>() { VerticalMove, HorizotalMove };
-
+    
+    public int ObstacleDamage => _obstacleDamage;
 
     private void OnTriggerEnter(Collider collider)
     {
