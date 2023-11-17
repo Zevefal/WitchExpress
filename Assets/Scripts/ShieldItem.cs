@@ -7,11 +7,11 @@ public class ShieldItem : MonoBehaviour
     [SerializeField] int _shieldTimeDuration;
 
     private Coroutine _activateShield;
-    private Player _player;
+    private PlayerHealth _player;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<Player>(out Player player))
+        if (other.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
             _player = player;
             _activateShield = StartCoroutine(ActivateShield());
@@ -20,16 +20,15 @@ public class ShieldItem : MonoBehaviour
 
     private IEnumerator ActivateShield()
     {
-        _player.SetShield(true);
+        _player.SetShieldOn();
+        transform.SetParent(_player.transform, true);
+        transform.position = _player.transform.position;
 
         yield return new WaitForSeconds(_shieldTimeDuration);
 
-        _player.SetShield(false);
-
-        if (_activateShield != null)
-        {
-            StopCoroutine(_activateShield);
-            _activateShield = null;
-        }
+        _player.SetShieldOff();
+        StopCoroutine(_activateShield);
+        Destroy(gameObject);
+        _activateShield = null;
     }
 }

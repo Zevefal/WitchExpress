@@ -8,7 +8,7 @@ public class HealingItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<Player>(out Player player))
+        if(other.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
             player.Heal(_healCount);
             Destroy(gameObject);

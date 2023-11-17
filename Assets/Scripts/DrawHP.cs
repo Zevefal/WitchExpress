@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DrawHP : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerHealth _player;
     [SerializeField] private Slider _bar;
 
     private void OnEnable()

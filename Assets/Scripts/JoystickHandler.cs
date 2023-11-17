@@ -15,6 +15,11 @@ public abstract class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDow
 
     protected Vector2 InputVector;
 
+    private void Start()
+    {
+        _joystickBackgroundStartPosition = _joystickBackground.rectTransform.anchoredPosition;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 joystickPostition;
@@ -46,10 +51,5 @@ public abstract class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDow
 
         InputVector = Vector2.zero;
         _joystick.rectTransform.anchoredPosition = Vector2.zero;
-    }
-
-    private void Start()
-    {
-        _joystickBackgroundStartPosition = _joystickBackground.rectTransform.anchoredPosition;
     }
 }
