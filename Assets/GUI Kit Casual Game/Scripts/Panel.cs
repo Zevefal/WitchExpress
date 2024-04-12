@@ -1,21 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LayerLab
 {
     public class Panel : MonoBehaviour
     {
-        [SerializeField] private GameObject[] otherPanels;
+        [SerializeField] private GameObject[] _otherPanels;
 
         public void OnEnable()
         {
-            for (int i = 0; i < otherPanels.Length; i++) otherPanels[i].SetActive(true);
+            for (int i = 0; i < _otherPanels.Length; i++) _otherPanels[i].SetActive(true);
         }
 
         public void OnDisable()
         {
-            for (int i = 0; i < otherPanels.Length; i++) otherPanels[i].SetActive(false);
+            for (int i = 0; i < _otherPanels.Length; i++) _otherPanels[i].SetActive(false);
         }
     }
 }
