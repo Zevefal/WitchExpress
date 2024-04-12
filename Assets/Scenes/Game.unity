@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 5232097}
   - component: {fileID: 5232099}
   - component: {fileID: 5232098}
+  - component: {fileID: 5232101}
+  - component: {fileID: 5232100}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -196,8 +198,8 @@ MonoBehaviour:
     \u0441 \u0434\u0440\u0443\u0437\u044C\u044F\u043C\u0438 \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443
     \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0445 \u043C\u043E\u043D\u0435\u0442."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
-  m_sharedMaterial: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -221,7 +223,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.5
+  m_fontSize: 40.7
   m_fontSizeBase: 53.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -271,6 +273,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5232096}
   m_CullTransparentMesh: 0
+--- !u!114 &5232100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5232096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Title
+  FallbackText: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C!\n\u0416\u0438\u0442\u0435\u043B\u0438
+    \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0442 \u0442\u0435\u0431\u0435
+    \u0434\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C \u0438\u0445 \u043F\u043E\u0441\u044B\u043B\u043A\u0438.\n\u041F\u043E\u0434\u043D\u0438\u043C\u0430\u0439
+    \u043F\u043E\u0441\u044B\u043B\u043A\u0443, \u043D\u0430 \u043D\u0438\u0445 \u0443\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442
+    \u0437\u0435\u043B\u0435\u043D\u0430\u044F \u0441\u0442\u0440\u0435\u043B\u043A\u0430.\n\u0414\u043E\u0441\u0442\u0430\u0432\u044C
+    \u043F\u043E\u0441\u044B\u043B\u043A\u0443 \u0434\u043E \u043F\u043E\u0447\u0442\u043E\u0432\u043E\u0433\u043E
+    \u044F\u0449\u0438\u043A\u0430 \u043D\u0430 \u0444\u0438\u043D\u0438\u0448\u0435
+    \u0438 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0439 \u0434\u0435\u043D\u0435\u0433.\n\u0421\u043E\u0440\u0435\u0432\u043D\u0443\u0439\u0441\u044F
+    \u0441 \u0434\u0440\u0443\u0437\u044C\u044F\u043C\u0438 \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443
+    \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0445 \u043C\u043E\u043D\u0435\u0442."
+--- !u!114 &5232101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5232096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Title
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &15178984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,6 +671,128 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
   m_PrefabInstance: {fileID: 2094083677}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &72078720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72078721}
+  - component: {fileID: 72078722}
+  m_Layer: 0
+  m_Name: Tutorial/Heal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72078721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72078720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72078722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72078720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: If you receive damage, you can meet such an object on your way, pick it
+      up and replenish your health.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0415\u0441\u043B\u0438 \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B
+      \u0443\u0440\u043E\u043D, \u0442\u043E \u043C\u043E\u0436\u0435\u0448\u044C
+      \u043D\u0430 \u0441\u0432\u043E\u0435\u043C \u043F\u0443\u0442\u0438 \u0432\u0441\u0442\u0440\u0435\u0442\u0438\u0442\u044C
+      \u0442\u0430\u043A\u043E\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442,
+      \u0437\u0440\u0430\u0431\u0440\u0430\u0442\u044C\u0435\u0433\u043E \u0438 \u0432\u043E\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u044C
+      \u0437\u0430\u043F\u0430\u0441 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Hasar al\u0131rsan\u0131z yolda b\xF6yle bir nesneyle kar\u015F\u0131la\u015Fabilir,
+      onu al\u0131p sa\u011Fl\u0131\u011F\u0131n\u0131z\u0131 yenileyebilirsiniz."
+    Object: {fileID: 0}
+--- !u!1 &87097541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87097542}
+  - component: {fileID: 87097543}
+  m_Layer: 0
+  m_Name: Tutorial/Obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &87097542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87097541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87097543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87097541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: These obstacles will interfere with your path, be careful and do not touch
+      them.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0430 \u0442\u0432\u043E\u0435\u043C \u043F\u0443\u0442\u0438 \u0442\u0435\u0431\u0435
+      \u0431\u0443\u0434\u0443\u0442 \u043C\u0435\u0448\u0430\u0442\u044C \u044D\u0442\u0438
+      \u043F\u0440\u0435\u043F\u044F\u0442\u0441\u0442\u0432\u0438\u044F, \u0431\u0443\u0434\u044C
+      \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u0435\u043D \u0438 \u043D\u0435
+      \u0437\u0430\u0434\u0435\u0432\u0430\u0439 \u0438\u0445."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu engeller yolunuzu kesecektir, dikkatli olun ve onlara dokunmay\u0131n."
+    Object: {fileID: 0}
 --- !u!1001 &94366609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1533,6 +1694,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPanels:
   - {fileID: 1088279284}
+--- !u!1 &186370272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186370273}
+  - component: {fileID: 186370274}
+  m_Layer: 0
+  m_Name: Tutorial/PreciousParcel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186370273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186370272}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &186370274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186370272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: This is what a precious package looks like, you need to be careful with
+      it, it reduces the number of life points.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "De\u011Ferli bir paket b\xF6yle g\xF6r\xFCn\xFCyor, dikkatli olmak gerekiyor,
+      ya\u015Fam puanlar\u0131n\u0131 azalt\u0131yor."
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u043E\u0442 \u0442\u0430\u043A \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
+      \u0434\u0440\u0430\u0433\u043E\u0446\u0435\u043D\u043D\u0430\u044F \u043F\u043E\u0441\u044B\u043B\u043A\u0430,
+      \u0441 \u043D\u0435\u0439 \u043D\u0443\u0436\u043D\u043E \u0431\u044B\u0442\u044C
+      \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u043D\u044B\u043C, \u043E\u043D\u0430
+      \u0443\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u043E\u0447\u043A\u043E\u0432 \u0436\u0438\u0437\u043D\u0435\u0439."
+    Object: {fileID: 0}
 --- !u!1 &194522983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +2008,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
   m_PrefabInstance: {fileID: 1145395436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &220726907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 220726908}
+  - component: {fileID: 220726909}
+  m_Layer: 0
+  m_Name: Tutorial/Booster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &220726908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220726907}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &220726909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220726907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u042D\u0442\u043E\u0442 \u043E\u0431\u044A\u0435\u043A\u0442 \u0443\u0441\u043A\u043E\u0440\u044F\u0435\u0442
+      \u0442\u0435\u0431\u044F \u043D\u0430 \u043A\u043E\u0440\u043E\u0442\u043A\u0438\u0439
+      \u043F\u0440\u043E\u043C\u0435\u0436\u0443\u0442\u043E\u043A \u0432\u0440\u0435\u043C\u0435\u043D\u0438."
+    Object: {fileID: 0}
+  - Language: English
+    Text: This object speeds you up for a short period of time.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu nesne sizi k\u0131sa bir s\xFCreli\u011Fine h\u0131zland\u0131r\u0131r."
+    Object: {fileID: 0}
 --- !u!4 &242470752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 99614073485166376, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
@@ -2107,6 +2387,63 @@ MonoBehaviour:
     SpeedLevel: 1
     HealthLevel: 1
     TutorialEnable: 1
+--- !u!1 &254378709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254378710}
+  - component: {fileID: 254378711}
+  m_Layer: 0
+  m_Name: Tutorial/Brake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254378710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254378709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254378711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254378709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u042D\u0442\u043E\u0442 \u043E\u0431\u044A\u0435\u043A\u0442 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E
+      \u0442\u0435\u0431\u044F \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442,
+      \u043E\u0441\u0442\u0440\u043E\u0436\u043D\u0435\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: This object will stop you completely, be careful.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu nesne sizi tamamen durduracakt\u0131r, dikkatli olun."
+    Object: {fileID: 0}
 --- !u!1001 &262943587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2201,6 +2538,8 @@ GameObject:
   - component: {fileID: 297364442}
   - component: {fileID: 297364444}
   - component: {fileID: 297364443}
+  - component: {fileID: 297364446}
+  - component: {fileID: 297364445}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -2326,6 +2665,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297364441}
   m_CullTransparentMesh: 0
+--- !u!114 &297364445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297364441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Booster
+  FallbackText: 
+--- !u!114 &297364446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297364441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Booster
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &297852472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4709,6 +5076,18 @@ Transform:
   - {fileID: 874896089}
   - {fileID: 1404736596}
   - {fileID: 1990315528}
+  - {fileID: 1926492646}
+  - {fileID: 1545403936}
+  - {fileID: 1361505239}
+  - {fileID: 186370273}
+  - {fileID: 1187841437}
+  - {fileID: 87097542}
+  - {fileID: 72078721}
+  - {fileID: 220726908}
+  - {fileID: 254378710}
+  - {fileID: 1074278003}
+  - {fileID: 1638734071}
+  - {fileID: 703954654}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &529937015
@@ -6294,6 +6673,65 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.6280975, y: 5.9563813, z: 10.645447}
   m_Center: {x: -22.06025, y: 2.973935, z: 30.764996}
+--- !u!1 &703954653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 703954654}
+  - component: {fileID: 703954655}
+  m_Layer: 0
+  m_Name: Tutorial/Upgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &703954654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703954653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &703954655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703954653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0421\u0432\u043E\u0438 \u0434\u0435\u043D\u044C\u0433\u0438 \u043C\u043E\u0436\u0435\u0448\u044C
+      \u0442\u0440\u0430\u0442\u0438\u0442\u044C \u043D\u0430 \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F,
+      \u0447\u0442\u043E\u0431\u044B \u0431\u044B\u043B\u043E \u043F\u0440\u043E\u0449\u0435
+      \u0434\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0442\u044C \u043F\u043E\u0441\u044B\u043B\u043A\u0438."
+    Object: {fileID: 0}
+  - Language: English
+    Text: You can spend your money on improvements to make it easier to deliver packages.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Paket teslimini kolayla\u015Ft\u0131rmak i\xE7in paran\u0131z\u0131 iyile\u015Ftirmelere
+      harcayabilirsiniz."
+    Object: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,6 +7016,8 @@ GameObject:
   - component: {fileID: 761531398}
   - component: {fileID: 761531400}
   - component: {fileID: 761531399}
+  - component: {fileID: 761531402}
+  - component: {fileID: 761531401}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -6703,6 +7143,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761531397}
   m_CullTransparentMesh: 0
+--- !u!114 &761531401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761531397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Brake
+  FallbackText: 
+--- !u!114 &761531402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761531397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Brake
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &762187465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9110,6 +9578,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a43d9162869eb7c40ac13f1c87771dbc, type: 3}
+--- !u!1 &1074278002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074278003}
+  - component: {fileID: 1074278004}
+  m_Layer: 0
+  m_Name: Tutorial/Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1074278003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074278002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074278004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074278002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: This object will give you temporary invulnerability to obstacles.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u042D\u0442\u043E\u0442 \u043E\u0431\u044A\u0435\u043A\u0442 \u0434\u0430\u0441\u0442
+      \u0442\u0435\u0431\u0435 \u0432\u0440\u0435\u043C\u0435\u043D\u043D\u0443\u044E
+      \u043D\u0435\u0443\u044F\u0437\u0432\u0438\u043C\u043E\u0441\u0442\u044C \u043A
+      \u043F\u0440\u0435\u043F\u044F\u0442\u0441\u0442\u0432\u0438\u044F\u043C."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu nesne size engellere kar\u015F\u0131 ge\xE7ici olarak dokunulmazl\u0131k
+      sa\u011Flayacakt\u0131r."
+    Object: {fileID: 0}
 --- !u!1 &1080262226
 GameObject:
   m_ObjectHideFlags: 0
@@ -10487,6 +11014,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
   m_PrefabInstance: {fileID: 473389624}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1187841436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187841437}
+  - component: {fileID: 1187841438}
+  m_Layer: 0
+  m_Name: Tutorial/FinishPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187841437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187841436}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187841438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187841436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: This is the place where you need to deliver the package. Don't fly past,
+      otherwise you won't make money.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Paketi teslim etmeniz gereken yer buras\u0131d\u0131r. U\xE7up ge\xE7meyin,
+      aksi halde para kazanamazs\u0131n\u0131z."
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u042D\u0442\u043E \u0442\u043E \u043C\u0435\u0441\u0442\u043E, \u043A\u0443\u0434\u0430
+      \u0442\u0435\u0431\u0435 \u043D\u0443\u0436\u043D\u043E \u043E\u0442\u0434\u0430\u0442\u044C
+      \u043F\u043E\u0441\u044B\u043B\u043A\u0443. \u041D\u0435 \u043F\u0440\u043E\u043B\u0435\u0442\u0438
+      \u043C\u0438\u043C\u043E, \u0438\u043D\u0430\u0447\u0435 \u043D\u0435 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0448\u044C."
+    Object: {fileID: 0}
 --- !u!1 &1192689156
 GameObject:
   m_ObjectHideFlags: 0
@@ -10791,6 +11378,8 @@ GameObject:
   - component: {fileID: 1235926882}
   - component: {fileID: 1235926884}
   - component: {fileID: 1235926883}
+  - component: {fileID: 1235926886}
+  - component: {fileID: 1235926885}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -10917,6 +11506,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235926881}
   m_CullTransparentMesh: 0
+--- !u!114 &1235926885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235926881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Upgrades
+  FallbackText: 
+--- !u!114 &1235926886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235926881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Upgrades
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &1236436686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11050,6 +11667,8 @@ GameObject:
   - component: {fileID: 1245887765}
   - component: {fileID: 1245887767}
   - component: {fileID: 1245887766}
+  - component: {fileID: 1245887769}
+  - component: {fileID: 1245887768}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -11176,6 +11795,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245887764}
   m_CullTransparentMesh: 0
+--- !u!114 &1245887768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245887764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/FinishPoint
+  FallbackText: 
+--- !u!114 &1245887769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245887764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/FinishPoint
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &1256025309
 GameObject:
   m_ObjectHideFlags: 0
@@ -11640,6 +12287,8 @@ GameObject:
   - component: {fileID: 1277054162}
   - component: {fileID: 1277054164}
   - component: {fileID: 1277054163}
+  - component: {fileID: 1277054166}
+  - component: {fileID: 1277054165}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -11768,6 +12417,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277054161}
   m_CullTransparentMesh: 0
+--- !u!114 &1277054165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277054161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Heal
+  FallbackText: 
+--- !u!114 &1277054166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277054161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Heal
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &1301573684
 GameObject:
   m_ObjectHideFlags: 0
@@ -11836,6 +12513,8 @@ GameObject:
   - component: {fileID: 1310513160}
   - component: {fileID: 1310513162}
   - component: {fileID: 1310513161}
+  - component: {fileID: 1310513164}
+  - component: {fileID: 1310513163}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -11963,6 +12642,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310513159}
   m_CullTransparentMesh: 0
+--- !u!114 &1310513163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310513159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/BigParcel
+  FallbackText: 
+--- !u!114 &1310513164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310513159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/BigParcel
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &1321017506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12178,6 +12885,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
+--- !u!1 &1361505238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361505239}
+  - component: {fileID: 1361505240}
+  m_Layer: 0
+  m_Name: Tutorial/HeavyParcel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361505239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361505238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361505240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361505238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412\u043E\u0442 \u0442\u0430\u043A \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
+      \u0442\u044F\u0436\u0435\u043B\u0430\u044F \u043F\u043E\u0441\u044B\u043B\u043A\u0430,
+      \u0441 \u043D\u0435\u0439 \u0431\u0443\u0434\u0435\u0448\u044C \u043B\u0435\u0442\u0435\u0442\u044C
+      \u043C\u0435\u0434\u043B\u0435\u043D\u0435\u0435. "
+    Object: {fileID: 0}
+  - Language: English
+    Text: This is what a heavy package looks like; with it you will fly slower.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "A\u011F\u0131r bir paket b\xF6yle g\xF6r\xFCn\xFCr; onunla daha yava\u015F
+      u\xE7acaks\u0131n\u0131z."
+    Object: {fileID: 0}
 --- !u!4 &1371998480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
@@ -13237,6 +14003,8 @@ GameObject:
   - component: {fileID: 1518143132}
   - component: {fileID: 1518143134}
   - component: {fileID: 1518143133}
+  - component: {fileID: 1518143136}
+  - component: {fileID: 1518143135}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -13363,6 +14131,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518143131}
   m_CullTransparentMesh: 0
+--- !u!114 &1518143135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518143131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/HeavyParcel
+  FallbackText: 
+--- !u!114 &1518143136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518143131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/HeavyParcel
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!4 &1523011316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 99614073485166376, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
@@ -13542,6 +14338,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 99614073485166376, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
   m_PrefabInstance: {fileID: 1436162210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1545403935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545403936}
+  - component: {fileID: 1545403937}
+  m_Layer: 0
+  m_Name: Tutorial/BigParcel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545403936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545403935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545403937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545403935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: "\rThere are several types of parcels.\r\nThis is what a large package
+      looks like, it will be difficult to turn with it."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rBirka\xE7 \xE7e\u015Fit parsel vard\u0131r.\r\nB\xFCy\xFCk bir paket
+      b\xF6yle g\xF6r\xFCn\xFCyor, onunla d\xF6nmek zor olacak."
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+      \u0432\u0438\u0434\u043E\u0432 \u043F\u043E\u0441\u044B\u043B\u043E\u043A.\r\n\u0412\u043E\u0442
+      \u0442\u0430\u043A \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442 \u0431\u043E\u043B\u044C\u0448\u0430\u044F
+      \u043F\u043E\u0441\u044B\u043B\u043A\u0430, \u0441 \u043D\u0435\u0439 \u0431\u0443\u0434\u0435\u0442
+      \u0441\u043B\u043E\u0436\u043D\u043E \u043F\u043E\u0432\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u0442\u044C."
+    Object: {fileID: 0}
 --- !u!1001 &1556808374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14149,6 +15006,8 @@ GameObject:
   - component: {fileID: 1625571054}
   - component: {fileID: 1625571056}
   - component: {fileID: 1625571055}
+  - component: {fileID: 1625571058}
+  - component: {fileID: 1625571057}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -14275,6 +15134,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625571053}
   m_CullTransparentMesh: 0
+--- !u!114 &1625571057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625571053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Shield
+  FallbackText: 
+--- !u!114 &1625571058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625571053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Shield
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!114 &1628577471 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4691975047615754532, guid: 5254aa91f7b67a84eb870e3ae288c134, type: 3}
@@ -14286,6 +15173,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17da542d5326a0545ac448ce2cbe5b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1638734070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638734071}
+  - component: {fileID: 1638734072}
+  m_Layer: 0
+  m_Name: Tutorial/Coin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638734071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638734070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638734072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638734070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041F\u043E \u043F\u0443\u0442\u0438 \u0442\u0435\u0431\u0435 \u0431\u0443\u0434\u0443\u0442
+      \u0432\u0441\u0442\u0440\u0435\u0447\u0430\u0442\u044C\u0441\u044F \u043C\u043E\u043D\u0435\u0442\u044B,
+      \u043D\u0435 \u0443\u0441\u043F\u0443\u0441\u043A\u0430\u0439 \u0448\u0430\u043D\u0441
+      \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u043F\u043E\u0431\u043E\u043B\u044C\u0448\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: "Along the way you will meet coins, don\u2019t miss the chance to earn
+      more."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Yol boyunca madeni paralarla tan\u0131\u015Facaks\u0131n\u0131z, daha
+      fazla kazanma \u015Fans\u0131n\u0131 ka\xE7\u0131rmay\u0131n."
+    Object: {fileID: 0}
 --- !u!1001 &1644355631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15201,6 +16148,13 @@ MonoBehaviour:
     _playOnAwake: 0
     _loop: 0
     _audioSource: {fileID: 0}
+  - _name: Coin
+    _clip: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
+    _output: {fileID: 4874547947788172571, guid: 73e150fe519835646812cd6574f06aaf, type: 2}
+    _volume: 1
+    _playOnAwake: 0
+    _loop: 0
+    _audioSource: {fileID: 0}
 --- !u!4 &1768275017
 Transform:
   m_ObjectHideFlags: 0
@@ -15287,6 +16241,8 @@ GameObject:
   - component: {fileID: 1787378587}
   - component: {fileID: 1787378589}
   - component: {fileID: 1787378588}
+  - component: {fileID: 1787378591}
+  - component: {fileID: 1787378590}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -15413,6 +16369,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787378586}
   m_CullTransparentMesh: 0
+--- !u!114 &1787378590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787378586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Coin
+  FallbackText: 
+--- !u!114 &1787378591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787378586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Coin
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!4 &1789456931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
@@ -16204,6 +17188,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923436643}
   m_CullTransparentMesh: 0
+--- !u!1 &1926492645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926492646}
+  - component: {fileID: 1926492647}
+  m_Layer: 0
+  m_Name: Tutorial/Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926492646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926492645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 529268515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926492647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926492645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C!\n\u0416\u0438\u0442\u0435\u043B\u0438
+      \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0442 \u0442\u0435\u0431\u0435
+      \u0434\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C \u0438\u0445 \u043F\u043E\u0441\u044B\u043B\u043A\u0438.\n\u041F\u043E\u0434\u043D\u0438\u043C\u0430\u0439
+      \u043F\u043E\u0441\u044B\u043B\u043A\u0443, \u043D\u0430 \u043D\u0438\u0445
+      \u0443\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0437\u0435\u043B\u0435\u043D\u0430\u044F
+      \u0441\u0442\u0440\u0435\u043B\u043A\u0430.\n\u0414\u043E\u0441\u0442\u0430\u0432\u044C
+      \u043F\u043E\u0441\u044B\u043B\u043A\u0443 \u0434\u043E \u043F\u043E\u0447\u0442\u043E\u0432\u043E\u0433\u043E
+      \u044F\u0449\u0438\u043A\u0430 \u043D\u0430 \u0444\u0438\u043D\u0438\u0448\u0435
+      \u0438 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0439 \u0434\u0435\u043D\u0435\u0433.\n\u0421\u043E\u0440\u0435\u0432\u043D\u0443\u0439\u0441\u044F
+      \u0441 \u0434\u0440\u0443\u0437\u044C\u044F\u043C\u0438 \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443
+      \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0445 \u043C\u043E\u043D\u0435\u0442."
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Welcome!
+
+      Residents offer you to deliver their packages.
+
+      Pick
+      up the parcel, there is a green arrow on them.
+
+      Deliver the package
+      to the mailbox at the finish line and earn money.
+
+      Compete with your
+      friends based on the number of coins you earn.'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ho\u015F geldin!\r\nSakinler size paketlerini teslim etmenizi teklif ediyor.\r\nPaketi
+      al\u0131n, \xFCzerinde ye\u015Fil bir ok var.\r\nPaketi biti\u015F \xE7izgisindeki
+      posta kutusuna teslim edin ve para kazan\u0131n.\r\nKazand\u0131\u011F\u0131n\u0131z
+      jeton say\u0131s\u0131na g\xF6re arkada\u015Flar\u0131n\u0131zla yar\u0131\u015F\u0131n."
+    Object: {fileID: 0}
 --- !u!1 &1933513220
 GameObject:
   m_ObjectHideFlags: 0
@@ -16215,6 +17278,8 @@ GameObject:
   - component: {fileID: 1933513221}
   - component: {fileID: 1933513223}
   - component: {fileID: 1933513222}
+  - component: {fileID: 1933513225}
+  - component: {fileID: 1933513224}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -16343,6 +17408,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933513220}
   m_CullTransparentMesh: 0
+--- !u!114 &1933513224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933513220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/PreciousParcel
+  FallbackText: 
+--- !u!114 &1933513225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933513220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/PreciousParcel
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!4 &1933821244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 99614073485166376, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
@@ -16491,6 +17584,8 @@ GameObject:
   - component: {fileID: 1959587005}
   - component: {fileID: 1959587007}
   - component: {fileID: 1959587006}
+  - component: {fileID: 1959587009}
+  - component: {fileID: 1959587008}
   m_Layer: 5
   m_Name: Text_Free
   m_TagString: Untagged
@@ -16618,6 +17713,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959587004}
   m_CullTransparentMesh: 0
+--- !u!114 &1959587008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959587004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Obstacles
+  FallbackText: 
+--- !u!114 &1959587009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959587004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tutorial/Obstacles
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &1966981309
 GameObject:
   m_ObjectHideFlags: 0
@@ -19830,7 +20953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5025761384434201312, guid: 83acada631754f646b02dccff579ab79, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.0007935
+      value: -3.0008545
       objectReference: {fileID: 0}
     - target: {fileID: 5025761384434201312, guid: 83acada631754f646b02dccff579ab79, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20876,21 +21999,21 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
+  - {fileID: 810126057}
+  - {fileID: 705507995}
+  - {fileID: 952043759}
   - {fileID: 1487299617}
   - {fileID: 2085378323}
   - {fileID: 1446511954}
   - {fileID: 330303679}
-  - {fileID: 810126057}
   - {fileID: 7889445894422522461}
-  - {fileID: 705507995}
-  - {fileID: 952043759}
   - {fileID: 1910119602}
   - {fileID: 1623157138}
   - {fileID: 417124150}
   - {fileID: 205330785}
   - {fileID: 1768275017}
   - {fileID: 529268515}
-  - {fileID: 251064000}
   - {fileID: 529937017}
   - {fileID: 1017344925705052606}
   - {fileID: 782628377}
+  - {fileID: 251064000}

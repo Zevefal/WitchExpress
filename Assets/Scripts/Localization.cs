@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Localization : MonoBehaviour
 {
-    private const string LanguagePrefs = "Language";
     private const string EnglishCode = "en";
     private const string RussianCode = "ru";
     private const string TurkishCode = "tr";
@@ -31,35 +30,13 @@ public class Localization : MonoBehaviour
         {
             case EnglishCode:
                 _localization.SetCurrentLanguage(EnglishLanguage);
-                //PlayerPrefs.SetString(LanguagePrefs, English.ToString());
                 break;
             case RussianCode:
                 _localization.SetCurrentLanguage(RussianLanguage);
-                //PlayerPrefs.SetString(LanguagePrefs, Russian.ToString());
                 break;
             case TurkishCode:
                 _localization.SetCurrentLanguage(TurkishLanguage);
-                //PlayerPrefs.SetString(LanguagePrefs, Turkish.ToString());
                 break;
-            //default:
-            //    LeanLocalization.SetCurrentLanguageAll(English.ToString());
-            //    //PlayerPrefs.SetString(LanguagePrefs, English.ToString());
-            //    _language = English.ToString();
-            //    break;
         }
-    }
-
-    public void InitializeLanguage(string savedLanguage)
-    {
-        //if (PlayerPrefs.HasKey(LanguagePrefs))
-        //{
-        //    LeanLocalization.SetCurrentLanguageAll(SaveSystem.Instance.PlayerData.Language);
-        //}
-        //else
-        //{
-        //    ChangeLanguage();
-        //}
-
-        _localization.SetCurrentLanguage(savedLanguage);
     }
 }
