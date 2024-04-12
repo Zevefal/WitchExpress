@@ -1,106 +1,123 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using PlayerPrefs = Agava.YandexGames.Utility.PlayerPrefs;
 
-[RequireComponent(typeof(Rigidbody))]
+
 public class CharacterMovement : MonoBehaviour
 {
-    private const string SpeedPowerUp = "Speed";
-    private const string MobilityPowerUp = "Mobility";
+	private const string SpeedPowerUp = "Speed";
+	private const string MobilityPowerUp = "Mobility";
 
-    [SerializeField] private int _speed;
-    [SerializeField] private float _rotateSpeed;
+	[SerializeField] private int _speed;
+	[SerializeField] private float _rotateSpeed;
 
-    private Rigidbody _rigidbody;
+	private Coroutine _bonusSpeedCoroutine;
+	private float XRotation = 0;
+	private float YRotation = 0;
+	private int _maxAngle = 40;
+	private int _minAngle = -40;
+	private float _minHorizontalPosition = -17f;
+	private float _maxHorizontalPosition = 17f;
+	private float _minVerticalPosition = 1f;
+	private float _maxVerticalPosition = 10f;
 
-    private Coroutine _bonusSpeedCoroutine;
 
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
+	public int Speed => _speed;
+	public float Mobility => _rotateSpeed;
 
-    public void SetMobility(int mobility)
-    {
-        _rotateSpeed -= (int)(_rotateSpeed * (mobility / 100f));
-    }
+	public void SetMobility(int mobility)
+	{
+		_rotateSpeed -= (int)(_rotateSpeed * (mobility / 100f));
+	}
 
-    public void SetSpeed(int speed)
-    {
-        _speed -= (int)(_speed * (speed / 100f));
-    }
+	public void SetSpeed(int speed)
+	{
+		_speed -= (int)(_speed * (speed / 100f));
+	}
 
-    public void MoveCharacter(Vector3 moveDirection)
-    {
-        //_rigidbody.AddRelativeForce(Vector3.forward*_speed);
-        //_rigidbody.velocity = transform.forward * _speed;
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-    }
+	public void MoveCharacter()
+	{
+		transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+		LimitPosition();
+	}
 
-    public void RotateCharacter(Vector3 moveDirection)
-    {
-        if (Vector3.Angle(transform.forward, moveDirection) > 0)
-        {
-            transform.Rotate(0.0f, moveDirection.x * _rotateSpeed * Time.deltaTime, 0.0f, Space.World);
-            transform.Rotate(-moveDirection.y * _rotateSpeed * Time.deltaTime, 0.0f, 0.0f);
-        }
+	public void RotateCharacter(Vector3 moveDirection)
+	{
+		//if (Vector3.Angle(transform.forward, moveDirection) > 0)
+		//{
+			float XaxisRotation = -moveDirection.x * _rotateSpeed * Time.deltaTime;
+			float YaxisRotation = moveDirection.y * _rotateSpeed * Time.deltaTime;
 
-        if (transform.rotation.eulerAngles.z != 0)
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
-        }
-    }
+			XRotation -= XaxisRotation;
+			YRotation -= YaxisRotation;
+			XRotation = Mathf.Clamp(XRotation, _minAngle, _maxAngle);
+			YRotation = Mathf.Clamp(YRotation, _minAngle, _maxAngle);
+		    transform.localRotation = Quaternion.Euler(YRotation, XRotation, 0f);
+		//}
+	}
 
-    public void PowerUp(string name, int count)
-    {
-        if (name == MobilityPowerUp)
-        {
-            PowerUpMobility(count);
-        }
-        else if (name == SpeedPowerUp)
-        {
-            PowerUpSpeed(count);
-        }
-    }
+	public void PowerUp(string name, int count)
+	{
+		if (name == MobilityPowerUp)
+		{
+			PowerUpMobility(count);
+		}
+		else if (name == SpeedPowerUp)
+		{
+			PowerUpSpeed(count);
+		}
+	}
 
-    public void StartSpeedBonus(int bonusCount)
-    {
-        _bonusSpeedCoroutine = StartCoroutine(SpeedBonus(bonusCount));
-    }
+	public void StartSpeedBonus(int bonusCount)
+	{
+		_bonusSpeedCoroutine = StartCoroutine(SpeedBonus(bonusCount));
+	}
 
-    private void PowerUpMobility(int count)
-    {
-        _rotateSpeed += count;
-    }
+	public void InitiliazeMovementParametrs(int savedSpeed, float savedMobility)
+	{
+		_speed = savedSpeed;
+		_rotateSpeed = savedMobility;
+	}
 
-    private void PowerUpSpeed(int count)
-    {
-        _speed += count;
-    }
+	private void LimitPosition()
+	{
+		float horizontalPosition = Mathf.Clamp(transform.position.x, _minHorizontalPosition, _maxHorizontalPosition);
+		float verticalPostion = Mathf.Clamp(transform.position.y, _minVerticalPosition, _maxVerticalPosition);
+		transform.position = new Vector3(horizontalPosition, verticalPostion, transform.position.z);
+	}
 
-    private IEnumerator SpeedBonus(int bonusCount)
-    {
-        int startingSpeed = _speed;
-        int timeOfAction = 3;
+	private void PowerUpMobility(int count)
+	{
+		_rotateSpeed += count;
+	}
 
-        _speed += bonusCount;
+	private void PowerUpSpeed(int count)
+	{
+		_speed += count;
+	}
 
-        if (_speed <= 0)
-        {
-            _speed = 0;
-        }
+	private IEnumerator SpeedBonus(int bonusCount)
+	{
+		int startingSpeed = _speed;
+		int timeOfAction = 3;
 
-        yield return new WaitForSeconds(timeOfAction);
+		_speed += bonusCount;
 
-        _speed = startingSpeed;
-        StopSpeedBonus();
-    }
+		if (_speed <= 0)
+		{
+			_speed = 0;
+		}
 
-    private void StopSpeedBonus()
-    {
-        StopCoroutine(_bonusSpeedCoroutine);
-        _bonusSpeedCoroutine = null;
-    }
+		yield return new WaitForSeconds(timeOfAction);
+
+		_speed = startingSpeed;
+		StopSpeedBonus();
+	}
+
+	private void StopSpeedBonus()
+	{
+		StopCoroutine(_bonusSpeedCoroutine);
+		_bonusSpeedCoroutine = null;
+	}
 }

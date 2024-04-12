@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChunkPlacer : MonoBehaviour
@@ -9,6 +7,7 @@ public class ChunkPlacer : MonoBehaviour
     [SerializeField] private GameObject[] _chunkTemplates;
     [SerializeField] private GameObject _firstChunk;
     [SerializeField] private GameObject _lastChunk;
+    [SerializeField] private int _chunksCount;
 
     private List<Chunk> _spawnedChunks = new List<Chunk>();
 
@@ -16,7 +15,7 @@ public class ChunkPlacer : MonoBehaviour
     {
         _spawnedChunks.Add(_firstChunk.GetComponent<Chunk>());
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < _chunksCount; i++)
         {
             SpawnChunk();
         }

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShieldItem : MonoBehaviour
 {
-    [SerializeField] int _shieldTimeDuration;
+    private const string ShieldSound = "Shield";
+
+    [SerializeField] private int _shieldTimeDuration;
 
     private Coroutine _activateShield;
     private PlayerHealth _player;
@@ -15,6 +18,7 @@ public class ShieldItem : MonoBehaviour
         {
             _player = player;
             _activateShield = StartCoroutine(ActivateShield());
+            SoundHandler.Instance.PlaySound(ShieldSound);
         }
     }
 
@@ -29,6 +33,5 @@ public class ShieldItem : MonoBehaviour
         _player.SetShieldOff();
         StopCoroutine(_activateShield);
         Destroy(gameObject);
-        _activateShield = null;
     }
 }

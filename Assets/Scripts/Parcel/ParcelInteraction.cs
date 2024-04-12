@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ParcelInteraction : MonoBehaviour
 {
     private const string ParcelPlaceName = "ParcelPoint";
+    private const string PickupSound = "Pick";
+
+    public static event UnityAction<Parcel> IsPicked;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +17,8 @@ public class ParcelInteraction : MonoBehaviour
             if (other.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
             {
                 PlaseToPlayer(playerHealth.gameObject);
-                playerHealth.SetPlayerHealth(preciousParcel.LifeReduction);
+                IsPicked?.Invoke(preciousParcel);
+                playerHealth.DebaffPlayerHealth(preciousParcel.LifeReduction);
             }
 
         }
@@ -22,6 +27,7 @@ public class ParcelInteraction : MonoBehaviour
             if (other.TryGetComponent<CharacterMovement>(out CharacterMovement characterMovement))
             {
                 PlaseToPlayer(characterMovement.gameObject);
+                IsPicked?.Invoke(bigParcel);
                 characterMovement.SetMobility(bigParcel.MobilityReduction);
             }
         }
@@ -30,6 +36,7 @@ public class ParcelInteraction : MonoBehaviour
             if (other.TryGetComponent<CharacterMovement>(out CharacterMovement characterMovement))
             {
                 PlaseToPlayer(characterMovement.gameObject);
+                IsPicked?.Invoke(heavyParcel);
                 characterMovement.SetSpeed(heavyParcel.SpeedReduction);
             }
         }
@@ -42,5 +49,6 @@ public class ParcelInteraction : MonoBehaviour
         transform.position = parcelPosition.position;
         transform.rotation = player.transform.rotation;
         gameObject.GetComponent<BoxCollider>().enabled = false;
+        SoundHandler.Instance.PlaySound(PickupSound);
     }
 }

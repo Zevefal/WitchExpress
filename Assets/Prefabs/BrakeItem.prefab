@@ -9926,3 +9926,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedBonus: -5
+  _soundEffect: {fileID: 0}

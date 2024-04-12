@@ -1,23 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GiveParcel : MonoBehaviour
 {
     [SerializeField] private Transform _parcelPosition;
-    [SerializeField] private Wallet _wallet;
+
+    //public static Action OnGiveParcel;
+    public static Action<int> IsPlayerRewarded;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
+        if (other.TryGetComponent<Wallet>(out Wallet playerWallet))
         {
-            GameObject parcel = playerHealth.gameObject.transform.GetComponentInChildren<Parcel>().gameObject;
+            Parcel parcel = playerWallet.gameObject.transform.GetComponentInChildren<Parcel>();
 
-            parcel.transform.position = _parcelPosition.position;
-            parcel.transform.rotation = Quaternion.identity;
-            parcel.transform.SetParent(gameObject.transform, true);
-
-            _wallet.AddMoney(parcel.GetComponent<Parcel>().Reward);
+            parcel.gameObject.transform.position = _parcelPosition.position;
+            parcel.gameObject.transform.rotation = Quaternion.identity;
+            parcel.gameObject.transform.SetParent(gameObject.transform, true);
+            playerWallet.AddMoney(parcel.Reward);
+            //OnGiveParcel?.Invoke();
+            IsPlayerRewarded?.Invoke(parcel.Reward);
         }
     }
 }

@@ -4905,6 +4905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shieldTimeDuration: 5
+  _soundEffect: {fileID: 0}
 --- !u!65 &3373107950301036422
 BoxCollider:
   m_ObjectHideFlags: 0
