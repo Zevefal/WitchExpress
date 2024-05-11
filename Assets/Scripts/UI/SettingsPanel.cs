@@ -10,15 +10,16 @@ public class SettingsPanel : MonoBehaviour
 	private const string SliderValuePrefs = "SliderVolume";
 	private const string MusicPrefs = "Music";
 
+	[SerializeField] private SaveLoadManager _saveLoadManager;
 	[SerializeField] private AudioMixerGroup _mixerGroup;
 	[SerializeField] private Slider _volumeSlider;
 	[SerializeField] private Toggle _musicToggle;
-
-	private float _sliderValue;
+	[SerializeField] private Toggle _soundToggle;
 
 	public float Volume => _volumeSlider.value;
 	public bool MusicToggle => _musicToggle.isOn;
-	
+	public bool SoundToggle => _soundToggle.isOn;
+
 	public void ToggleMusic(bool enabled)
 	{
 		if (enabled)
@@ -31,51 +32,42 @@ public class SettingsPanel : MonoBehaviour
 			_mixerGroup.audioMixer.SetFloat(MusicVolume, -80f);
 			_musicToggle.isOn = false;
 		}
+
+		_saveLoadManager.Save();
+	}
+
+	public void ToggleSound(bool enabled)
+	{
+		if (enabled)
+		{
+			_mixerGroup.audioMixer.SetFloat(MasterVolume, 0f);
+			_soundToggle.isOn = true;
+		}
+		else
+		{
+			_mixerGroup.audioMixer.SetFloat(MasterVolume, -80f);
+			_soundToggle.isOn = false;
+		}
+		_saveLoadManager.Save();
 	}
 
 	public void ChangeVolume(float volume)
 	{
-		//_mixerGroup.audioMixer.SetFloat(MasterVolume,/*Mathf.Lerp(-80,0,volume)*/Mathf.Log10(volume)*20);
 		AudioListener.volume = volume;
-		//_sliderValue = volume;
-		//PlayerPrefs.SetFloat(VolumePrefs, volume);
-		//PlayerPrefs.SetFloat(SliderValuePrefs, _volumeSlider.value);
+		_saveLoadManager.Save();
 	}
 
-	public void SetPlayerVolumeSettings(float savedVolume, bool savedToggle)
+	public void SetPlayerVolumeSettings(float savedVolume, bool savedToggle, bool savedSound)
 	{
-		//if(PlayerPrefs.HasKey(VolumePrefs))
-		//{
-		//    ChangeVolume(PlayerPrefs.GetFloat(VolumePrefs));
-		//    _volumeSlider.value = PlayerPrefs.GetFloat(VolumePrefs);
-		//}
-
-		//if(PlayerPrefs.HasKey(MusicPrefs))
-		//{
-		//    ToggleMusic(Convert.ToBoolean(PlayerPrefs.GetInt(MusicPrefs)));
-		//    _musicToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt(MusicPrefs));
-		//}
-
-		//if (PlayerPrefs.HasKey(VolumePrefs))
-		//{
-		//    ChangeVolume(SaveSystem.Instance.PlayerData.Volume);
-		//    //_volumeSlider.value = SaveSystem.Instance.PlayerData.SliderValue;
-		//    _volumeSlider.value = SaveSystem.Instance.PlayerData.Volume;
-		//}
-
-		//if (PlayerPrefs.HasKey(MusicPrefs))
-		//{
-		//    ToggleMusic(SaveSystem.Instance.PlayerData.Music);
-		//    _musicToggle.isOn = SaveSystem.Instance.PlayerData.Music;
-		//}
-	   // ChangeVolume(savedVolume);
 		SetSliderValue(savedVolume);
-		ToggleMusic(savedToggle);
+		// ToggleMusic(savedToggle);
+		// ToggleSound(savedSound);
+		_musicToggle.isOn = savedToggle;
+		_soundToggle.isOn = savedSound;
 	}
 
 	private void SetSliderValue(float value)
 	{
 		_volumeSlider.value = value;
-		//ChangeVolume(value);
 	}
 }

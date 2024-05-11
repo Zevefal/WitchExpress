@@ -10,11 +10,11 @@ public class JoystickMovement : JoystickHandler
 
 		if (InputVector.x != 0 || InputVector.y != 0)
 		{
-			_characterMovement.RotateCharacter(new Vector3(InputVector.x, InputVector.y,0));			
+			_characterMovement.RotateCharacter(new Vector3(InputVector.x, InputVector.y,0));		
 		}
 		else
 		{
-			_characterMovement.RotateCharacter(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0));	
+			_characterMovement.RotateCharacter(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0));
 		}
 	}
 }

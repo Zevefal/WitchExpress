@@ -6,12 +6,15 @@ public class FocusOnTab : MonoBehaviour
 {
 	private const string MasterVolume = "MasterVolume";
 
+	[SerializeField] private ShowAdvertisement _showVideoAd;
 	[SerializeField] private SaveLoadManager _saveLoadManager;
 	[SerializeField] private SceneHandler _sceneHendler;
 	[SerializeField] private AudioMixerGroup _mixerGroup;
 
 	private void OnEnable()
 	{
+		_showVideoAd.IsVideoOpen += OnInBackgroundChangeApp;
+		_showVideoAd.IsVideoOpen += OnInBackgroundChangeWeb;
 		Application.focusChanged += OnInBackgroundChangeApp;
 		WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
 	}
@@ -36,18 +39,20 @@ public class FocusOnTab : MonoBehaviour
 
 	private void MuteAudio(bool value)
 	{
-		_mixerGroup.audioMixer.SetFloat(MasterVolume, value ? -80 : _saveLoadManager.PlayerInfo.Volume);
+		//_mixerGroup.audioMixer.SetFloat(MasterVolume, value ? -80 : _saveLoadManager.PlayerInfo.Volume);
+
+		AudioListener.volume = value ? 0 : _saveLoadManager.PlayerInfo.Volume;
 	}
 
 	private void PauseGame(bool value)
 	{
-		if(_sceneHendler.IsStarted == true && value == false)
+		if(value == false)
 		{
-			Time.timeScale = 1;
+			_sceneHendler.Resume();
 		}
 		else
 		{
-			Time.timeScale = 0;
+			_sceneHendler.SetPause();
 		}
 	}
 }

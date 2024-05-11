@@ -1,9 +1,7 @@
 using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using System.Collections;
-using System.Threading.Tasks;
 
 public class SaveLoadManager : MonoBehaviour
 {
@@ -25,78 +23,76 @@ public class SaveLoadManager : MonoBehaviour
 
 	public void Awake()
 	{
-		LoadGame();
-		StartCoroutine(AutoSave());
+		Load();
 	}
 
 	private void OnEnable()
 	{
-		FinishWallInterraction.Finished += SaveGame;
+		FinishWallInterraction.Finished += Save;
 	}
 
 	private void OnDisable()
 	{
-		FinishWallInterraction.Finished -= SaveGame;
-		StopCoroutine(AutoSave());
+		FinishWallInterraction.Finished -= Save;
 	}
 
-	public async void SaveGame()
+	public void DeleteSave()
+	{
+		PlayerPrefs.DeleteAll();
+
+		_wallet.SetMoney(50);
+		_health.SetPlayerHealth(10);
+		_characterMovement.InitiliazeMovementParametrs(8, 28);
+		_settingsPanel.ChangeVolume(PlayerInfo.Volume);
+		_slider.value = PlayerInfo.Volume;
+		_settingsPanel.ToggleMusic(PlayerInfo.Music);
+		_settingsPanel.ToggleSound(PlayerInfo.Sound);
+
+		Save();
+	}
+
+	public void Save()
+	{
+		StartCoroutine(SaveDataCoroutine());
+	}
+
+	public void Load()
+	{
+		StartCoroutine(LoadGameCouroutine());
+	}
+
+	public void SaveGameData()
 	{
 		PlayerData playerData = new PlayerData()
 		{
 			Money = _wallet.Money,
+			TotalMoney = _wallet.TotalEarnedMoney,
 			Health = _health.Health,
-			Speed = _characterMovement.Speed,
-			Mobility = _characterMovement.Mobility,
+			Speed = _characterMovement.StartedSpeed,
+			Mobility = _characterMovement.StartedRotation,
 			Volume = _settingsPanel.Volume,
 			Music = _settingsPanel.MusicToggle,
+			Sound = _settingsPanel.SoundToggle,
 			MobilityLevel = _upgrade.GetPowerCount(MobilityPowerUp),
 			SpeedLevel = _upgrade.GetPowerCount(SpeedPowerUp),
 			HealthLevel = _upgrade.GetPowerCount(HealthPowerUp),
-			//TutorialEnable = _tutorial.TutorialEnabled
 		};
 
 		string jsonString = JsonUtility.ToJson(playerData);
 
-		if (PlayerAccount.IsAuthorized)
-		{
-		   PlayerAccount.SetCloudSaveData(jsonString, OnSuccessSave, OnErrorSave);
-		}
-		else
-		{
-			PlayerPrefs.SetString(SaveKey, jsonString);
-		}
-
-		await Task.Yield();
+		PlayerAccount.SetCloudSaveData(jsonString);
+		PlayerPrefs.SetString(SaveKey, jsonString);
 	}
 
-	private void OnSuccessSave()
-	{
-		Debug.Log("SAVE OK");
-	}
-
-	private void OnErrorSave(string message)
-	{
-		Debug.Log("NOT OK SAVE" + message);
-	}
-
-	public async void LoadGame()
+	public void LoadGameData()
 	{
 		PlayerAccount.GetCloudSaveData(OnSuccessLoad, OnErrorLoad);
-		await Task.Yield();
 	}
 
-	private async void OnSuccessLoad(string json)
+	private void OnSuccessLoad(string json)
 	{
-		PlayerData TempPlayerInfo = JsonUtility.FromJson<PlayerData>(json);
-
-		if (TempPlayerInfo != PlayerInfo)
-		{
-			PlayerInfo = TempPlayerInfo;
-			AddToPlayerData();
-		}
-
-		await Task.Yield();
+		PlayerInfo = JsonUtility.FromJson<PlayerData>(json);
+		AddToPlayerData();
 	}
 
 	private void OnErrorLoad(string message)
@@ -107,34 +103,25 @@ public class SaveLoadManager : MonoBehaviour
 			PlayerInfo = JsonUtility.FromJson<PlayerData>(json);
 			AddToPlayerData();
 		}
-		else return;
+		else
+		{
+			AddDefaultParametrs();
+		}
 	}
 
-	private async void AddToPlayerData()
+	private void AddToPlayerData()
 	{
 		_wallet.SetMoney(PlayerInfo.Money);
+		_wallet.SetTotalMoney(PlayerInfo.TotalMoney);
 		_health.SetPlayerHealth(PlayerInfo.Health);
 		_characterMovement.InitiliazeMovementParametrs(PlayerInfo.Speed, PlayerInfo.Mobility);
 		_settingsPanel.ChangeVolume(PlayerInfo.Volume);
 		_slider.value = PlayerInfo.Volume;
 		_settingsPanel.ToggleMusic(PlayerInfo.Music);
+		_settingsPanel.ToggleSound(PlayerInfo.Sound);
 		PlayerPrefs.SetInt(MobilityPowerUp, PlayerInfo.MobilityLevel);
 		PlayerPrefs.SetInt(SpeedPowerUp, PlayerInfo.SpeedLevel);
 		PlayerPrefs.SetInt(HealthPowerUp, PlayerInfo.HealthLevel);
-		//_tutorial.TutorialEnabler(PlayerInfo.TutorialEnable);
-		// _wallet.AddMoney(50);
-		// _health.SetPlayerHealth(10);
-		// _playerEnergy.AddEnergy(50);
-		// _characterMovement.InitiliazeMovementParametrs(5, 25);
-		// _settingsPanel.ChangeVolume(1);
-		// _slider.value = PlayerInfo.Volume;
-		// _settingsPanel.ToggleMusic(PlayerInfo.Music);
-		// PlayerPrefs.SetInt(MobilityPowerUp, 1);
-		// PlayerPrefs.SetInt(SpeedPowerUp, 1);
-		// PlayerPrefs.SetInt(HealthPowerUp, 1);
-		// Debug.Log("Добавили HEALTH "+ PlayerInfo.Health.ToString());
-		// Debug.Log("Добавили HEALTH LEVEL "+ PlayerInfo.HealthLevel.ToString());
-		await Task.Yield();
 	}
 
 	private IEnumerator AutoSave()
@@ -143,14 +130,25 @@ public class SaveLoadManager : MonoBehaviour
 		StartCoroutine(AutoSave());
 	}
 
-	// private int CalculateTotalEnergy()
-	// {
-	// 	TimeSpan timePassed = DateTime.UtcNow - PlayerInfo.LastPlayTime;
-	// 	int minutsPassed = (int)timePassed.TotalMinutes;
-	// 	//int EnergyCount = Mathf.Clamp(minutsPassed, 0, 7 * 24 * 60);
-	// 	Debug.Log("Total energy" + minutsPassed.ToString());
-	// 	//EnergyCount += minutsPassed + PlayerInfo.Energy;
+	public IEnumerator SaveDataCoroutine()
+	{
+		SaveGameData();
+		yield return new WaitForEndOfFrame();
+	}
 
-	// 	return minutsPassed;
-	// }
+	public IEnumerator LoadGameCouroutine()
+	{
+		LoadGameData();
+		yield return new WaitForEndOfFrame();
+	}
+
+	private void AddDefaultParametrs()
+	{
+		_wallet.SetMoney(50);
+		_health.SetPlayerHealth(10);
+		_characterMovement.InitiliazeMovementParametrs(8, 28);
+		PlayerPrefs.SetInt(MobilityPowerUp, 1);
+		PlayerPrefs.SetInt(SpeedPowerUp, 1);
+		PlayerPrefs.SetInt(HealthPowerUp, 1);
+	}
 }

@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Timers;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using PlayerPrefs = Agava.YandexGames.Utility.PlayerPrefs;
 
 
@@ -10,34 +13,53 @@ public class CharacterMovement : MonoBehaviour
 
 	[SerializeField] private int _speed;
 	[SerializeField] private float _rotateSpeed;
+	[SerializeField] private LayerMask _stopLayer;
 
 	private Coroutine _bonusSpeedCoroutine;
 	private float XRotation = 0;
 	private float YRotation = 0;
-	private int _maxAngle = 40;
-	private int _minAngle = -40;
-	private float _minHorizontalPosition = -17f;
-	private float _maxHorizontalPosition = 17f;
+	private int _maxAngle = 60;
+	private int _minAngle = -60;
+	private float _minHorizontalPosition = -20f;
+	private float _maxHorizontalPosition = 20f;
 	private float _minVerticalPosition = 1f;
-	private float _maxVerticalPosition = 10f;
+	private float _maxVerticalPosition = 24f;
+	private float _detectionDistance = 4f;
 
-
-	public int Speed => _speed;
+	public int StartedSpeed { get; private set; }
+	public float StartedRotation { get; private set; }
 	public float Mobility => _rotateSpeed;
 
-	public void SetMobility(int mobility)
+	private Rigidbody _rigidbody;
+
+	private void Start()
+	{
+		StartedSpeed = _speed;
+		StartedRotation = _rotateSpeed;
+		_rigidbody = gameObject.GetComponent<Rigidbody>();
+	}
+
+	public void SetDebaffMobility(int mobility)
 	{
 		_rotateSpeed -= (int)(_rotateSpeed * (mobility / 100f));
 	}
 
-	public void SetSpeed(int speed)
+	public void SetDebaffSpeed(int speed)
 	{
 		_speed -= (int)(_speed * (speed / 100f));
 	}
 
 	public void MoveCharacter()
 	{
-		transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+		if (IsObstacleInFront() == false)
+		{
+			_rigidbody.velocity = transform.forward * _speed;
+		}
+		else
+		{
+			_rigidbody.MovePosition(_rigidbody.position);
+		}
+
 		LimitPosition();
 	}
 
@@ -67,7 +89,8 @@ public class CharacterMovement : MonoBehaviour
 
 	public void StartSpeedBonus(int bonusCount)
 	{
-		_bonusSpeedCoroutine = StartCoroutine(SpeedBonus(bonusCount));
+		if (_bonusSpeedCoroutine == null)
+			_bonusSpeedCoroutine = StartCoroutine(SpeedBonus(bonusCount));
 	}
 
 	public void InitiliazeMovementParametrs(int savedSpeed, float savedMobility)
@@ -86,11 +109,29 @@ public class CharacterMovement : MonoBehaviour
 	private void PowerUpMobility(int count)
 	{
 		_rotateSpeed += count;
+		StartedRotation = _rotateSpeed;
 	}
 
 	private void PowerUpSpeed(int count)
 	{
 		_speed += count;
+		StartedSpeed = _speed;
+	}
+
+	private bool IsObstacleInFront()
+	{
+		Ray ray = new Ray(transform.position, transform.forward);
+		RaycastHit hit;
+		Debug.DrawRay(ray.origin, ray.direction * _detectionDistance, Color.red);
+
+		if (Physics.Raycast(ray, out hit, _detectionDistance, _stopLayer))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	private IEnumerator SpeedBonus(int bonusCount)
@@ -113,7 +154,9 @@ public class CharacterMovement : MonoBehaviour
 
 	private void StopSpeedBonus()
 	{
-		StopCoroutine(_bonusSpeedCoroutine);
+		if (_bonusSpeedCoroutine != null)
+			StopCoroutine(_bonusSpeedCoroutine);
+
 		_bonusSpeedCoroutine = null;
 	}
 }

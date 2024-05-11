@@ -1,83 +1,84 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 namespace LayerLab
 {
-    public class PanelControl : MonoBehaviour
-    {
-        private int page = 0;
-        private bool isReady = false;
-        [SerializeField] private List<GameObject> panels = new List<GameObject>();
-        private TextMeshProUGUI textTitle;
-        [SerializeField] private Transform panelTransform;
-        [SerializeField] private Button buttonPrev;
-        [SerializeField] private Button buttonNext;
+	public class PanelControl : MonoBehaviour
+	{
+		private int page = 0;
+		private bool isReady = false;
+		[SerializeField] private List<GameObject> panels = new List<GameObject>();
+		[SerializeField] private Transform _horizontalPanel;
+		[SerializeField] private Transform _verticalPanel;
+		[SerializeField] private Button buttonPrev;
+		[SerializeField] private Button buttonNext;
+		
+		private Transform _panelTransform;
 
-        private void Start()
-        {
-            textTitle = transform.GetComponentInChildren<TextMeshProUGUI>();
-            buttonPrev.onClick.AddListener(Click_Prev);
-            buttonNext.onClick.AddListener(Click_Next);
+		private void Start()
+		{
+			if(Agava.WebUtility.Device.IsMobile)
+			{
+				_panelTransform = _verticalPanel;
+			}
+			else
+			{
+				_panelTransform = _horizontalPanel;
+			}
+			
+			buttonPrev.onClick.AddListener(Click_Prev);
+			buttonNext.onClick.AddListener(Click_Next);
 
-            foreach (Transform t in panelTransform)
-            {
-                panels.Add(t.gameObject);
-                t.gameObject.SetActive(false);
-            }
+			foreach (Transform panel in _panelTransform)
+			{
+				panels.Add(panel.gameObject);
+				panel.gameObject.SetActive(false);
+			}
 
-            panels[page].SetActive(true);
-            isReady = true;
+			panels[page].SetActive(true);
+			isReady = true;
 
-            CheckControl();
-        }
+			CheckControl();
+		}
 
-        void Update()
-        {
-            if (panels.Count <= 0 || !isReady) return;
+		void Update()
+		{
+			if (panels.Count <= 0 || !isReady) return;
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-                Click_Prev();
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-                Click_Next();
-        }
+			if (Input.GetKeyDown(KeyCode.LeftArrow))
+				Click_Prev();
+			else if (Input.GetKeyDown(KeyCode.RightArrow))
+				Click_Next();
+		}
 
-        //Click_Prev
-        public void Click_Prev()
-        {
-            if (page <= 0 || !isReady) return;
+		public void Click_Prev()
+		{
+			if (page <= 0 || !isReady) return;
 
-            panels[page].SetActive(false);
-            panels[page -= 1].SetActive(true);
-            textTitle.text = panels[page].name;
-            CheckControl();
-        }
+			panels[page].SetActive(false);
+			panels[page -= 1].SetActive(true);
+			CheckControl();
+		}
 
-        //Click_Next
-        public void Click_Next()
-        {
-            if (page >= panels.Count - 1) return;
+		public void Click_Next()
+		{
+			if (page >= panels.Count - 1) return;
 
-            panels[page].SetActive(false);
-            panels[page += 1].SetActive(true);
-            CheckControl();
-        }
+			panels[page].SetActive(false);
+			panels[page += 1].SetActive(true);
+			CheckControl();
+		}
 
-        void SetArrowActive()
-        {
-            buttonPrev.gameObject.SetActive(page > 0);
-            buttonNext.gameObject.SetActive(page < panels.Count - 1);
-        }
+		void SetArrowActive()
+		{
+			buttonPrev.gameObject.SetActive(page > 0);
+			buttonNext.gameObject.SetActive(page < panels.Count - 1);
+		}
 
-        //SetTitle, SetArrow Active
-        private void CheckControl()
-        {
-            //textTitle.text = panels[page].name.Replace("_", " ");
-            SetArrowActive();
-        }
-    }
+		private void CheckControl()
+		{
+			SetArrowActive();
+		}
+	}
 }

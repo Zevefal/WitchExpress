@@ -15,7 +15,7 @@ public class CoinCollecting : MonoBehaviour
 		if (other.gameObject.TryGetComponent<Wallet>(out Wallet wallet))
 		{
 			SoundHandler.Instance.PlaySound(CoinSound);
-			wallet.AddMoney(_coinValue);
+			wallet.AddReward(_coinValue);
 			CoinCollected?.Invoke(_coinValue);
 			Destroy(gameObject);
 		}

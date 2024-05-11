@@ -2,12 +2,14 @@
 public class PlayerData
 {
 	public int Money;
+	public int TotalMoney;
 	public int Energy;
 	public int Health;
 	public float Mobility;
 	public int Speed;
 	public float Volume;
 	public bool Music;
+	public bool Sound;
 	public int MobilityLevel;
 	public int SpeedLevel;
 	public int HealthLevel;
@@ -16,6 +18,7 @@ public class PlayerData
 	public PlayerData()
 	{
 		Money = 50;
+		TotalMoney = 0;
 		Energy = 50;
 		Health = 10;
 		Mobility = 25;
@@ -25,6 +28,7 @@ public class PlayerData
 		SpeedLevel = 1;
 		HealthLevel = 1;
 		Music = true;
+		Sound = true;
 		TutorialEnable = true;
 	}
 }

@@ -8,7 +8,9 @@ public class PlayerHealth : MonoBehaviour
 
 	private int _health;
 	private int _maxHealth;
+	private int _debaffMaxHealth;
 	private bool _isShielded;
+	private bool _isDebaff = false;
 
 	public int Health => _maxHealth;
 
@@ -22,7 +24,14 @@ public class PlayerHealth : MonoBehaviour
 			_health -= damage;
 		}
 
-		HealthChanged?.Invoke(_health, _maxHealth);
+		if (_isDebaff == false)
+		{
+			HealthChanged?.Invoke(_health, _maxHealth);
+		}
+		else
+		{
+			HealthChanged?.Invoke(_health,_debaffMaxHealth);
+		}
 
 		if (_health <= 0)
 		{
@@ -58,7 +67,9 @@ public class PlayerHealth : MonoBehaviour
 	{
 		int debaffedHealth = (int)((float)_maxHealth * count / 100f);
 		_health = debaffedHealth;
+		_debaffMaxHealth = debaffedHealth;
 		HealthChanged?.Invoke(_health, debaffedHealth);
+		_isDebaff = true;
 	}
 
 	public void PowerUpHealth(int count)

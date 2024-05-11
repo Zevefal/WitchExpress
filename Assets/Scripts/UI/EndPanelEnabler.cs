@@ -1,44 +1,42 @@
-using TMPro;
 using UnityEngine;
 
-public class EndPanelEnabler: MonoBehaviour
+public class EndPanelEnabler : MonoBehaviour
 {
 	[SerializeField] private GameObject _panel;
+	[SerializeField] private GameObject[] _panelsToDisable;
 	[SerializeField] private GameObject _earnedObject;
 	[SerializeField] private GameObject _panelVictoryText;
 	[SerializeField] private GameObject _panelDeadText;
+	[SerializeField] private GameObject _videoAdButton;
 	[SerializeField] private SceneHandler _sceneHandler;
 	[SerializeField] private PlayerHealth _playerHealth;
-	[SerializeField] private TMP_Text _earnedText;
-
-	private int _reawardCount = 0;
-	
-	public int RewardCount => _reawardCount;
+	[SerializeField] private Wallet _wallet;
 
 	private void OnEnable()
 	{
 		_playerHealth.IsDead += ShowDeadPanel;
 		FinishWallInterraction.Finished += ShowVictoryPanel;
-		GiveParcel.IsPlayerRewarded += IncreaseReward;
-		CoinCollecting.CoinCollected += IncreaseReward;
 	}
 
 	private void OnDisable()
 	{
 		_playerHealth.IsDead -= ShowDeadPanel;
 		FinishWallInterraction.Finished -= ShowVictoryPanel;
-		GiveParcel.IsPlayerRewarded -= IncreaseReward;
-		CoinCollecting.CoinCollected -= IncreaseReward;
 	}
 
 	private void ShowVictoryPanel()
 	{
 		if (!_panel.activeSelf)
 		{
+			DisablePanels();
 			_panel.SetActive(true);
 			_earnedObject.SetActive(true);
-			SetRewardText();
 			_panelVictoryText.SetActive(true);
+
+			if (_wallet.RewardMoney > 0)
+			{
+				_videoAdButton.SetActive(true);
+			}
 		}
 
 		_sceneHandler.SetPause();
@@ -48,21 +46,24 @@ public class EndPanelEnabler: MonoBehaviour
 	{
 		if (!_panel.activeSelf)
 		{
+			DisablePanels();
 			_panel.SetActive(true);
 			_panelDeadText.SetActive(true);
-			SetRewardText();
+
+			if (_wallet.RewardMoney > 0)
+			{
+				_videoAdButton.SetActive(true);
+			}
 		}
 
 		_sceneHandler.SetPause();
 	}
-
-	private void SetRewardText()
+	
+	private void DisablePanels()
 	{
-		_earnedText.text = _reawardCount.ToString();
-	}
-
-	private void IncreaseReward(int count)
-	{
-		_reawardCount += count;
+		foreach (GameObject panel in _panelsToDisable)
+		{
+			panel.SetActive(false);
+		}
 	}
 }

@@ -3,20 +3,22 @@ using UnityEngine;
 
 public class MoneyDraw : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _moneyText;
+	[SerializeField] private TMP_Text _moneyText;
 
-    private void OnDisable()
-    {
-        Wallet.MoneyChanged -= SetText;
-    }
+	private void OnDisable()
+	{
+		Wallet.MoneyChanged -= SetText;
+		CoinCollecting.CoinCollected += SetText;
+	}
 
-    private void OnEnable()
-    {
-        Wallet.MoneyChanged += SetText;
-    }
+	private void OnEnable()
+	{
+		Wallet.MoneyChanged += SetText;
+		CoinCollecting.CoinCollected -= SetText;
+	}
 
-    private void SetText(int money)
-    {
-        _moneyText.text = money.ToString();
-    }
+	private void SetText(int money)
+	{
+		_moneyText.text = money.ToString();
+	}
 }

@@ -26,7 +26,7 @@ public class ParcelInteraction : MonoBehaviour
             {
                 PlaseToPlayer(characterMovement.gameObject);
                 IsPicked?.Invoke(bigParcel);
-                characterMovement.SetMobility(bigParcel.MobilityReduction);
+                characterMovement.SetDebaffMobility(bigParcel.MobilityReduction);
             }
         }
         else if (gameObject.TryGetComponent<HeavyParcel>(out HeavyParcel heavyParcel))
@@ -35,7 +35,7 @@ public class ParcelInteraction : MonoBehaviour
             {
                 PlaseToPlayer(characterMovement.gameObject);
                 IsPicked?.Invoke(heavyParcel);
-                characterMovement.SetSpeed(heavyParcel.SpeedReduction);
+                characterMovement.SetDebaffSpeed(heavyParcel.SpeedReduction);
             }
         }
     }

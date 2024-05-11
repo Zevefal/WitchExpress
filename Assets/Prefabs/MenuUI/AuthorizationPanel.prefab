@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &655778727720203727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37,7 +37,6 @@ RectTransform:
   - {fileID: 5419484869220120511}
   - {fileID: 8013182307854120223}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -126,7 +125,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655778727720203727}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -258,7 +256,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655778727720203727}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -338,7 +335,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3299328397774471502}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -373,7 +369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Authorization
+  m_text: "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -566,7 +562,6 @@ RectTransform:
   m_Children:
   - {fileID: 2640479426882742943}
   m_Father: {fileID: 655778727720203727}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -653,11 +648,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6681316347992074106, guid: 120ef87c770ed344fb29dc40548f06ba, type: 3}
       propertyPath: m_text
-      value: Authorization
+      value: "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F"
       objectReference: {fileID: 0}
     - target: {fileID: 6681316347992074106, guid: 120ef87c770ed344fb29dc40548f06ba, type: 3}
       propertyPath: m_fontSize
-      value: 64.3
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 6681316347992074106, guid: 120ef87c770ed344fb29dc40548f06ba, type: 3}
       propertyPath: m_fontAsset
@@ -935,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8419493272029473303, guid: 0b9ad8854f4de5a4e8bb470696953581, type: 3}
       propertyPath: m_text
-      value: Cancel
+      value: "\u041E\u0442\u043C\u0435\u043D\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 8419493272029473303, guid: 0b9ad8854f4de5a4e8bb470696953581, type: 3}
       propertyPath: m_fontAsset

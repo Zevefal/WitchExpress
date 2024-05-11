@@ -8,8 +8,6 @@ public class LeaderboardShower : MonoBehaviour
 
     public void ShowLeaderboard()
     {
-        PlayerAccount.Authorize();
-
         if (PlayerAccount.IsAuthorized)
         {
             PlayerAccount.RequestPersonalProfileDataPermission();

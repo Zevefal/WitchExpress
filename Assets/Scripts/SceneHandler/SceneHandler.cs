@@ -1,73 +1,65 @@
+using System;
 using Agava.YandexGames;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-	private const string UiSound = "Ui";
-
-	[SerializeField] private PlayerEnergy _energy;
-	[SerializeField] private Transform _startPosition;
-	[SerializeField] private GameObject[] _uiObjects;
+	[SerializeField] private JoystickMovement _characterMovement;
+	[SerializeField] private GameObject _settingsPanel;
 	[SerializeField] private SaveLoadManager _saveLoadManager;
 	[SerializeField] private SceneTransition _sceneTransition;
+	[SerializeField] private ShowAdvertisement _showAdvertisement;
 
 	private bool _isStarted = false;
-	private int _energyCost = 5;
+	private FinishWallInterraction _finishWallInterraction;
 
-	public static event UnityAction IsRestarted;
+	public event Action IsGameStarted;
 
-	public int EnergyCost => _energyCost;
-	public bool IsStarted => _isStarted;
-
+	private void OnEnable()
+	{
+		_showAdvertisement.PlayerRewarded += RestartGame;
+	}
+	
+	private void OnDisable()
+	{
+		_showAdvertisement.PlayerRewarded -= RestartGame;
+	}
+	
 	private void Awake()
 	{
 		OnCallGameReadyButtonClick();
-
-		Time.timeScale = 0;
+		SetPause();
 	}
 
 	public void StartGame()
 	{
-		//if (_energy.TakeEnergy(_energyCost))
-		//{
-		Time.timeScale = 1;
+		_finishWallInterraction = FindObjectOfType<FinishWallInterraction>();
+		_saveLoadManager.Save();
 		_isStarted = true;
-		//}
+		IsGameStarted?.Invoke();
+		Resume();
 	}
-
 	public void RestartGame()
 	{
-		SoundHandler.Instance.PlaySound(UiSound);
-		//_saveLoadManager.LoadGame();
+		_saveLoadManager.Save();
 		_sceneTransition.LoadScene(SceneManager.GetActiveScene().name);
-		IsRestarted?.Invoke();
-		_energy.gameObject.transform.position = _startPosition.position;
-		_energy.gameObject.SetActive(true);
 	}
 
 	public void SetPause()
 	{
-		SoundHandler.Instance.PlaySound(UiSound);
 		Time.timeScale = 0;
+		_characterMovement.enabled = false;
 	}
 
 	public void Resume()
 	{
-		SoundHandler.Instance.PlaySound(UiSound);
-
-		if (_isStarted)
+		if (_isStarted == true && _settingsPanel.activeSelf == false && _finishWallInterraction.IsFinished == false)
 		{
 			Time.timeScale = 1;
+			_characterMovement.enabled = true;
 		}
-	}
-
-	public void ExitGame()
-	{
-		SoundHandler.Instance.PlaySound(UiSound);
-		//SaveSystem.Instance.Save();
-		Application.Quit();
 	}
 
 	public void OnCallGameReadyButtonClick()
